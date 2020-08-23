@@ -1,0 +1,26 @@
+type Todo {
+  id: Int!
+  title: String!
+  author: String!
+}
+
+type Query {
+  todos: [Todo]!
+  todo(id: Int!): Todo
+}
+
+type Mutation {
+  editTodo(id: Int!, data: EditTodoInput): Todo
+  createTodo(data: CreateTodoInput): Todo
+  deleteTodo(id: Int!): Todo
+}
+
+input CreateTodoInput {
+  title: String!
+  author: String!
+}
+
+input EditTodoInput {
+  title: String
+  author: String
+}
